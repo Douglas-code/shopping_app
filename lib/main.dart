@@ -1,3 +1,4 @@
+import 'package:Shopping/pages/login.page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,18 +15,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Teste App"),
-      ),
+      home: LoginPage(),
     );
   }
 }
