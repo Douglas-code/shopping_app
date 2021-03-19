@@ -1,13 +1,17 @@
-import 'package:Shopping/pages/signup.page.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
+class SignupPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white.withOpacity(0),
+        elevation: 0,
+      ),
       body: SingleChildScrollView(
-        child: Container(
-            color: Colors.white,
+        child: Center(
+          child: Container(
+            color: Color(0xFFF5F5F5),
             padding: EdgeInsets.only(
               top: 80,
               left: 20,
@@ -36,37 +40,35 @@ class LoginPage extends StatelessWidget {
                       top: 60,
                     ),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: <Widget>[
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Column(
-                              children: <Widget>[
-                                Text(
-                                  "Welcome",
-                                  style: TextStyle(
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                Text("Sign in to continue"),
-                              ],
-                            ),
-                            FlatButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => SignupPage(),
-                                  ),
-                                );
-                              },
-                              child: Text("Sign Up"),
-                            ),
-                          ],
+                        Text(
+                          "Sign Up",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                         SizedBox(
-                          height: 60,
+                          height: 20,
+                        ),
+                        TextFormField(
+                          keyboardType: TextInputType.text,
+                          decoration: InputDecoration(
+                            labelText: "Name",
+                            labelStyle: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 16,
+                            ),
+                          ),
+                          style: TextStyle(
+                            fontSize: 20,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
                         ),
                         TextFormField(
                           keyboardType: TextInputType.emailAddress,
@@ -100,16 +102,8 @@ class LoginPage extends StatelessWidget {
                             fontSize: 20,
                           ),
                         ),
-                        Container(
-                          height: 40,
-                          alignment: Alignment.centerRight,
-                          child: FlatButton(
-                            onPressed: () {},
-                            child: Text("Forgot your password?"),
-                          ),
-                        ),
                         SizedBox(
-                          height: 10,
+                          height: 40,
                         ),
                         Container(
                           width: double.infinity,
@@ -122,7 +116,7 @@ class LoginPage extends StatelessWidget {
                           child: FlatButton(
                             onPressed: () {},
                             child: Text(
-                              "Sign In",
+                              "Sign Up",
                               style: TextStyle(color: Colors.white),
                             ),
                           ),
@@ -131,49 +125,10 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
-                  padding: EdgeInsets.only(
-                    top: 15,
-                    bottom: 15,
-                  ),
-                  child: Text(
-                    "- OR -",
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                ),
-                Container(
-                  width: double.infinity,
-                  height: 60,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      width: 2.0,
-                      color: Colors.blue,
-                    ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(5),
-                    ),
-                  ),
-                  child: FlatButton(
-                    child: Row(
-                      children: <Widget>[
-                        Container(
-                          height: 24,
-                          width: 100,
-                          child: Image.asset(
-                            "assets/facebook.png",
-                          ),
-                        ),
-                        Text("Sign in with Facebook"),
-                      ],
-                    ),
-                    onPressed: () {},
-                  ),
-                ),
               ],
-            )),
+            ),
+          ),
+        ),
       ),
     );
   }
