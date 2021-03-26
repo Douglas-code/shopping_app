@@ -2,6 +2,8 @@ import 'package:Shopping/pages/home.page.dart';
 import 'package:Shopping/pages/signup.page.dart';
 import 'package:flutter/material.dart';
 
+import 'cart.page.dart';
+
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -125,7 +127,7 @@ class LoginPage extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => HomePage(),
+                                  builder: (context) => CartPage(),
                                 ),
                               );
                             },
