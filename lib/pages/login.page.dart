@@ -123,14 +123,7 @@ class LoginPage extends StatelessWidget {
                             ),
                           ),
                           child: FlatButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => CartPage(),
-                                ),
-                              );
-                            },
+                            onPressed: () {},
                             child: Text(
                               "Sign In",
                               style: TextStyle(color: Colors.white),
