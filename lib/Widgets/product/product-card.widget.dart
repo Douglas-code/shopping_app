@@ -74,7 +74,7 @@ class ProductCard extends StatelessWidget {
           Text(
             "\$ $price",
             style: TextStyle(
-              color: Colors.green,
+              color: Theme.of(context).primaryColor,
               fontSize: 14,
               fontWeight: FontWeight.w300,
             ),
