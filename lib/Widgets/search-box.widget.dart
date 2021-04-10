@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'animated-input.widget.dart';
+
 class SearchBox extends StatefulWidget {
   @override
   _SearchBoxState createState() => _SearchBoxState();
@@ -8,6 +10,7 @@ class SearchBox extends StatefulWidget {
 class _SearchBoxState extends State<SearchBox>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
+  bool menuOpened = false;
 
   @override
   void initState() {
@@ -29,42 +32,24 @@ class _SearchBoxState extends State<SearchBox>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 60,
-      padding: EdgeInsets.only(
-        left: 20,
-      ),
-      child: Row(
-        children: <Widget>[
-          Icon(Icons.search),
-          Container(
-            width: 200,
-            padding: EdgeInsets.only(left: 10),
-            child: TextFormField(
-              keyboardType: TextInputType.text,
-              decoration: InputDecoration(
-                border: InputBorder.none,
-                labelText: "Search...",
-                labelStyle: TextStyle(
-                  color: Theme.of(context).primaryColor,
-                  fontWeight: FontWeight.w300,
-                  fontSize: 16,
-                ),
-              ),
-              style: TextStyle(
-                fontSize: 20,
-                color: Theme.of(context).primaryColor,
-              ),
-            ),
-          ),
-        ],
-      ),
-      decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.1),
-        borderRadius: BorderRadius.all(
-          Radius.circular(128),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        AnimatedInput(
+          controller: _controller,
         ),
-      ),
+        FlatButton(
+          onPressed: () {
+            !menuOpened ? _controller.forward() : _controller.reverse();
+            menuOpened = !menuOpened;
+          },
+          child: AnimatedIcon(
+            icon: AnimatedIcons.menu_close,
+            progress: _controller,
+            semanticLabel: "Open Menu",
+          ),
+        ),
+      ],
     );
   }
 }
